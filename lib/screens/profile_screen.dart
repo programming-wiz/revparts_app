@@ -15,13 +15,13 @@ class ProfileScreen extends StatelessWidget {
               // Profile Picture
               CircleAvatar(
                 radius: 50,
-                backgroundImage: AssetImage('assets/profile_picture.png'), // Placeholder image
+                backgroundImage: AssetImage('assets/images/profile.jpg'),
               ),
               SizedBox(height: 20),
 
               // User Name and Email
               Text(
-                'John Doe', // User's name
+                'Nanndish', // User's name
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -29,7 +29,7 @@ class ProfileScreen extends StatelessWidget {
               ),
               SizedBox(height: 10),
               Text(
-                'john.doe@example.com', // User's email
+                'nanndish@gmail.com', // User's email
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.grey[600],
@@ -37,10 +37,48 @@ class ProfileScreen extends StatelessWidget {
               ),
               SizedBox(height: 30),
 
+              // Mobile Form for editing profile details (name, email, phone)
+              Form(
+                child: Column(
+                  children: [
+                    // Text Field for Name (Text Input)
+                    TextFormField(
+                      decoration: InputDecoration(
+                        labelText: 'Name',
+                        border: OutlineInputBorder(),
+                      ),
+                      initialValue: 'Nanndish',
+                    ),
+                    SizedBox(height: 20),
+
+                    // Text Field for Email (Email Input)
+                    TextFormField(
+                      decoration: InputDecoration(
+                        labelText: 'Email',
+                        border: OutlineInputBorder(),
+                      ),
+                      keyboardType: TextInputType.emailAddress,
+                      initialValue: 'nanndish@gmail.com',
+                    ),
+                    SizedBox(height: 20),
+
+                    // Text Field for Phone Number (Phone Input)
+                    TextFormField(
+                      decoration: InputDecoration(
+                        labelText: 'Phone Number',
+                        border: OutlineInputBorder(),
+                      ),
+                      keyboardType: TextInputType.phone,
+                      initialValue: '077 989 9845',
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 30),
+
               // Edit Profile Button
               ElevatedButton.icon(
                 onPressed: () {
-                  // Navigate to edit profile page or show profile editing options
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                     content: Text('Edit Profile clicked'),
                   ));
@@ -69,22 +107,22 @@ class ProfileScreen extends StatelessWidget {
               ListTile(
                 leading: Icon(Icons.person),
                 title: Text('Username'),
-                subtitle: Text('JohnDoe123'),
+                subtitle: Text('nanndish01'),
               ),
               ListTile(
                 leading: Icon(Icons.email),
                 title: Text('Email'),
-                subtitle: Text('john.doe@example.com'),
+                subtitle: Text('nanndish@gmail.com'),
               ),
               ListTile(
                 leading: Icon(Icons.phone),
                 title: Text('Phone Number'),
-                subtitle: Text('+1 (555) 555-1234'),
+                subtitle: Text('077 989 9845'),
               ),
               ListTile(
                 leading: Icon(Icons.location_on),
                 title: Text('Address'),
-                subtitle: Text('123 Main St, Springfield, USA'),
+                subtitle: Text('No. 388 Union Pl, Colombo 00200'),
               ),
               SizedBox(height: 30),
 
@@ -102,7 +140,6 @@ class ProfileScreen extends StatelessWidget {
                 leading: Icon(Icons.lock),
                 title: Text('Change Password'),
                 onTap: () {
-                  // Handle change password functionality
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                     content: Text('Change Password clicked'),
                   ));
@@ -112,7 +149,6 @@ class ProfileScreen extends StatelessWidget {
                 leading: Icon(Icons.notifications),
                 title: Text('Notification Settings'),
                 onTap: () {
-                  // Navigate to notification settings
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                     content: Text('Notification Settings clicked'),
                   ));
@@ -122,7 +158,6 @@ class ProfileScreen extends StatelessWidget {
                 leading: Icon(Icons.privacy_tip),
                 title: Text('Privacy Settings'),
                 onTap: () {
-                  // Handle privacy settings
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                     content: Text('Privacy Settings clicked'),
                   ));
@@ -133,7 +168,6 @@ class ProfileScreen extends StatelessWidget {
               // Logout Button
               ElevatedButton.icon(
                 onPressed: () {
-                  // Handle logout functionality
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                     content: Text('Logging out...'),
                   ));
