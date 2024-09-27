@@ -5,7 +5,6 @@ class RegisterScreen extends StatelessWidget {
   final bool isDarkMode;
   final VoidCallback toggleTheme;
 
-  // Add isDarkMode and toggleTheme to allow dark/light mode toggle
   RegisterScreen({required this.isDarkMode, required this.toggleTheme});
 
   @override
@@ -20,71 +19,75 @@ class RegisterScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Name',
+      body: SingleChildScrollView(  // Wrap with SingleChildScrollView
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(height: MediaQuery.of(context).size.height * 0.1),  // Add space at top
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Name',
+                ),
               ),
-            ),
-            SizedBox(height: 16),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Email',
-                hintText: 'example@gmail.com',
+              SizedBox(height: 16),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Email',
+                  hintText: 'example@gmail.com',
+                ),
+                keyboardType: TextInputType.emailAddress,
               ),
-              keyboardType: TextInputType.emailAddress,
-            ),
-            SizedBox(height: 16),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Password',
+              SizedBox(height: 16),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                ),
+                obscureText: true,
               ),
-              obscureText: true,
-            ),
-            SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: () {
-                // Handle registration logic here
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => LoginScreen(
-                      isDarkMode: isDarkMode,      // Pass dark mode state to LoginScreen
-                      toggleTheme: toggleTheme,    // Pass toggle function to LoginScreen
+              SizedBox(height: 24),
+              ElevatedButton(
+                onPressed: () {
+                  // Handle registration logic here
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LoginScreen(
+                        isDarkMode: isDarkMode,      // Pass dark mode state to LoginScreen
+                        toggleTheme: toggleTheme,    // Pass toggle function to LoginScreen
+                      ),
                     ),
-                  ),
-                );
-              },
-              child: Text('Register'),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red,  // Use backgroundColor instead of primary
-                padding: EdgeInsets.symmetric(horizontal: 100, vertical: 15),
-                textStyle: TextStyle(fontSize: 18),
+                  );
+                },
+                child: Text('Register'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,  // Use backgroundColor instead of primary
+                  padding: EdgeInsets.symmetric(horizontal: 100, vertical: 15),
+                  textStyle: TextStyle(fontSize: 18),
+                ),
               ),
-            ),
-            SizedBox(height: 16),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => LoginScreen(
-                      isDarkMode: isDarkMode,      // Pass dark mode state to LoginScreen
-                      toggleTheme: toggleTheme,    // Pass toggle function to LoginScreen
+              SizedBox(height: 16),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LoginScreen(
+                        isDarkMode: isDarkMode,      // Pass dark mode state to LoginScreen
+                        toggleTheme: toggleTheme,    // Pass toggle function to LoginScreen
+                      ),
                     ),
-                  ),
-                );
-              },
-              child: Text(
-                'Login Here',
-                style: TextStyle(color: Colors.red),
+                  );
+                },
+                child: Text(
+                  'Login Here',
+                  style: TextStyle(color: Colors.red),
+                ),
               ),
-            ),
-          ],
+              SizedBox(height: 20), // Add extra space at the bottom
+            ],
+          ),
         ),
       ),
     );
